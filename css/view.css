@@ -1,0 +1,30 @@
+body{
+    margin-top: 50px;
+    background-color: #eeffff;
+    margin-left: 50px;
+   
+}
+
+#name,#number,#email,#address,#city,#role{
+    padding: 10px;
+}
+button{
+    background-color:#8aacc8;
+    border: none;
+    color:black;
+    padding: 15px;
+   
+    margin-top: 10px;
+    font-weight: bold;
+    
+  }
+  #delete{
+    background-color:#8aacc8;
+    border: none;
+    color:black;
+    padding: 15px;
+    margin-left: 100px;
+    margin-top: 10px;
+    font-weight: bold;
+
+  }
