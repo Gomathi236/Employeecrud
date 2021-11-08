@@ -16,28 +16,14 @@ function init(){
     
 init();
 
-// function IsEmpty() {
-
-//   if( document.getElementById('form').value === '' ){
-//     alert('empty');
-//   }
-// }
-
 function showTable() {
     employees.forEach((employee, index) => {
       var table = document.getElementsByTagName("tbody")[0];
       var newRow = table.insertRow(table.length);
       newRow.setAttribute("index", index);
       var cell1 = newRow.insertCell(0);
-      cell1.innerHTML = `<input type="checkbox" onchange="checkone(this);" name="ChildCheckBox" id="ChildCheckBox" />
-      <select id="list" name="Info" disabled="disabled">
-      <option selected></option>
-      <option value="cat">cat</option>
-      <option value="dog">Dog</option>
-      <option value="bird">Bird</option> 
-      </select>`                 
-
-      var cell2 = newRow.insertCell(1);
+      cell1.innerHTML = `<input type="checkbox" onclick="check()"  name="ChildCheckBox" id="ChildCheckBox" />`;
+       var cell2 = newRow.insertCell(1);
       cell2.innerHTML = employee.name;
       var cell3 = newRow.insertCell(2);
       cell3.innerHTML = employee.number;
@@ -53,43 +39,66 @@ function showTable() {
       cell8.innerHTML =  `<input type="submit" value="view" style="background-color:#8aacc8"; onclick='show(${index})'>
       <input type="submit" value="Edit" style="background-color:#8aacc8" onclick='editEmployee(${index})'>`
       // <input type="submit" value="DELETE"  id="delete" style="background-color:#8aacc8" onclick=onDelete(this)> `;
-      
-   
     });
 }
 
 function editEmployee(index){
-
- 
   location.href = "updateemployee.html?idx="+index;
-
 }
+
 function show(index) {
-  
-  
   location.href="viewemployee.html?idx="+index;
+}
 
+function check(){
+  var checkBox = document.getElementById("childCheckBox");
+  var button = document.getElementById("delete");
+  if(checkBox == true){
+    button.disabled = true;
+  }else{
+    button.disabled= false;
   
 }
-// function onDelete(element) {
-    
-//   selectedRow = element.parentElement.parentElement;
-//   employeeIndex = selectedRow.getAttribute('index');
-//   employeeIndex = parseInt(employeeIndex)
-//   selectedRow.remove();
-//   console.log(employees, employeeIndex)
-//   employees.splice(employeeIndex,1);
-//   console.log(employees)
-//   localStorage.setItem('employees', JSON.stringify(employees));
-
-//   // location.href = "showemployee.html" ;
-  
+}
+// function deleteTableRow() {
+//   const table = document.getElementById("formList");
+//   for (const [index, row] of [...table.rows].entries()) {
+//     if (row.querySelector('input:checked')) {
+      
+//       table.deleteRow(index);
+//       alert("would you like to delete?")
+//     }
+//   }
 // }
+
+// function deleteTableRow() {
+//   document.querySelectorAll('#table .select:checked').forEach(e => {
+//     e.parentNode.parentNode.remove()
+//   });
+// }
+
+function deleteTableRow(){
+  let datas= localStorage.getItem('employees');
+  const employees = JSON.parse(datas);
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParams = new URLSearchParams(queryString);
+  const emp = urlParams.get('idx')
+  console.log(emp);
+  const val = emp;
+  const table = document.getElementById("formList");
+  for (const [index, row] of [...table.rows].entries()) {
+  if (row.querySelector('input:checked')){
+  
+  table.deleteRow(index);
+     employees.splice(val,1)
+     localStorage.setItem('employees',JSON.stringify(employees))
+}
+  }
+}
 
 function checkAll(myCheckBox) {
   var checkboxes = document.querySelectorAll("input[type='checkbox']");
-  
-  
   console.log("checked");
   if (myCheckBox.checked == true) {
     checkboxes.forEach(function (checkboxes) {
@@ -109,6 +118,21 @@ function checkone(childCheckBox){
     ddl.focus();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function checkone(myCheckBox){
 //   var checkboxes = document.querySelectorAll("input[type='checkbox']");

@@ -24,3 +24,17 @@ tbody{
     background-color: #eeffff;
     margin: 0px;
   }
+  button{
+    background-color:#8aacc8;
+   
+    color:black;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-weight: bold;
+    margin-left: 800px;
+    margin-top: 20px;
+    
+  }
+  

@@ -8,9 +8,11 @@
     <header class="employee"><b>EMPLOYEE LIST</b></header>
     <!-- <form action="updateemployee.html">    -->
     <table class="list" id="formList">
+        <!-- <input type="submit" value="DELETE" onclick="deleteTableRow()"> -->
+        <button id="delete"  onclick="deleteTableRow();">DELETE</button>
         <thead>
             <tr>
-                <th><input type="checkbox" id="checkall" onchange="checkAll(this)"></th>
+                <th><input type="checkbox" id="checkall" onchange="checkAll(this)"> SELECT ALL</th>
                 <!-- <th><input type="checkbox" id="check" onclick="checkone()"></th>
                 <th><select id="list" name="Info">
                     <option></option>

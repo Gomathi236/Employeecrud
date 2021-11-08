@@ -47,16 +47,9 @@ function onDelete(){
   
     const val = emp;
   
-      
-      
-       
+       employees.splice(val,1)
         
-        employees.splice(val,1)
-        
-      
-    
-        
-        localStorage.setItem('employees',JSON.stringify(employees))
+       localStorage.setItem('employees',JSON.stringify(employees))
   
         location.href = "showemployee.html";
        
