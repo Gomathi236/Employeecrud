@@ -60,39 +60,24 @@ function check(){
   
 }
 }
-// function deleteTableRow() {
-//   const table = document.getElementById("formList");
-//   for (const [index, row] of [...table.rows].entries()) {
-//     if (row.querySelector('input:checked')) {
-      
-//       table.deleteRow(index);
-//       alert("would you like to delete?")
-//     }
-//   }
-// }
 
-// function deleteTableRow() {
-//   document.querySelectorAll('#table .select:checked').forEach(e => {
-//     e.parentNode.parentNode.remove()
-//   });
-// }
 
 function deleteTableRow(){
-  let datas= localStorage.getItem('employees');
-  const employees = JSON.parse(datas);
-  const queryString = window.location.search;
-  console.log(queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const emp = urlParams.get('idx')
-  console.log(emp);
-  const val = emp;
+  // var source = [1,2,3,4,5,6,7,8,9]
+  // var selectedItemIdx = [2,4] // index 2 is 3 and 4 is 5
+  // source = source.filter((item, index) => !selectedItemIdx.includes(index)) // this will remove the selected index from source arrays
+  // var source = [employees.index]
+  // var selectedItemIdx = [source,1];
+  // source = source.filter((item,source) => !selectedItemIdx.includes(source));
+  // localStorage.setItem('source',JSON.stringify(source))
+  var selectedRow = [index]
   const table = document.getElementById("formList");
-  for (const [index, row] of [...table.rows].entries()) {
+  for (const [index,row] of [...table.rows].entries()){
   if (row.querySelector('input:checked')){
-  
+ 
   table.deleteRow(index);
-     employees.splice(val,1)
-     localStorage.setItem('employees',JSON.stringify(employees))
+  employees.splice(employeeIndex,1);
+  localStorage.setItem('employees',JSON.stringify(employees))
 }
   }
 }
